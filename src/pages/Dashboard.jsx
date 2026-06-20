@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDashboardData } from "../api/referralApi";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer"
 import OverviewCards from "../components/OverviewCards";
 import ServiceSummary from "../components/ServiceSummary";
 import ShareReferral from "../components/ShareReferral";
@@ -44,7 +45,7 @@ const Dashboard = () => {
 
   if (error) {
     return (
-      <div className="p-4">
+      <div className="p-4" role="alert text-center" >
         <p className="text-red-500">{error}</p>
       </div>
     );
@@ -64,6 +65,7 @@ const Dashboard = () => {
         <ReferralTable  />
          
       </div>
+      <Footer/>
     </>
   );
 };

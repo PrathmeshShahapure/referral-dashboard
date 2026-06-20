@@ -34,3 +34,22 @@ export const getReferrals = async (search = "", sort = "desc") => {
   return response.data;
 };
 
+export const getReferralById = async (
+  id
+) => {
+  const token = Cookies.get("jwt_token");
+
+  const response = await axios.get(
+    BASE_URL,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        id,
+      },
+    }
+  );
+
+  return response.data;
+};

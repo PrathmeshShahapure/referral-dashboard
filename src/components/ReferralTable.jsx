@@ -58,7 +58,7 @@ const ReferralTable = () => {
       <h1 className="text-xl font-bold mb-4 px-4">All referrals</h1>
       <div className="flex items-center justify-between px-4 gap-4 ">
         <div className="flex items-center  gap-4 mb-4">
-          <label
+          <label aria-label="Search referrals"
             htmlFor="search"
             className="block text-base font-medium text-gray-700 "
           >
