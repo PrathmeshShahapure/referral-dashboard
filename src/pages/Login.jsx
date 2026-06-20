@@ -29,10 +29,7 @@ const Login = () => {
       Cookies.set("jwt_token", token, { expires: 1 });
       navigate("/");
     } catch (err) {
-    setError(
-      err?.response?.data?.message ||
-      "Something went wrong"
-    );
+      setError(err?.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -47,63 +44,65 @@ const Login = () => {
       className="min-h-screen flex items-center justify-center
     bg-center bg-cover "
     >
-        <div className=" max-w-md bg-white shadow-xl rounded-2xl p-8">
-          <h1 className="text-3xl text-center font-bold text-blue-900 mb-4">
-            <span className="text-blue-500">Go</span> Business
-          </h1>
-          <p className="text-gray-600 mb-4">
-            Sign in to open your referral dashboard.
-          </p>
-          <form onSubmit={handleSubmit} className="">
-            <label
-              htmlFor="email"
-              className=" text-gray-900 font-bold text-base mb-2"
-            >
-              Email
-            </label>
-            <input
-              className="w-full h-7 px-1 border border-gray-500 mb-2 outline-none rounded"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <label
-              htmlFor="password"
-              className="text-gray-900 font-bold text-base  mb-2"
-            >
-              Password
-            </label>
-            <input
-              className="w-full h-7 px-1 border border-gray-500 mb-4 outline-none rounded"
-              type="password"
-              id="password"
-              name="password"
-              placeholder="********"
-              value={formData.password}
-              onChange={handleChange}
-            />
+      <div className=" max-w-md bg-white shadow-xl rounded-2xl p-8">
+        <h1 className="text-3xl font-bold text-[#6e70f1] mb-2">
+          Go Business
+        </h1>
+        <p className="text-gray-600 mb-4">
+          Sign in to open your referral dashboard.
+        </p>
+        <form id="loginForm" onSubmit={handleSubmit} className="">
+          <label
+            htmlFor="email"
+            className=" text-gray-900 font-bold text-base mb-2"
+          >
+            Email
+          </label>
+          <input
+            className="w-full h-8 px-1 border border-gray-400 mb-2 outline-none rounded"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="password"
+            className="text-gray-900 font-bold text-base  mb-2"
+          >
+            Password
+          </label>
+          <input
+            className="w-full h-8 px-1 border border-gray-400 mb-4 outline-none rounded"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+            value={formData.password}
+            onChange={handleChange}
+          />
 
-            <div className=" flex justify-center">
-                 {loading ? <button
-                className=" bg-blue-500  hover:bg-blue-600 text-white py-2 px-4 rounded"
+          <div className=" flex justify-center">
+            {loading ? (
+              <button
+                className=" bg-[#6e70f1]  hover:bg-[#5a5cff] text-white py-1.5 px-4 rounded"
                 type="submit"
               >
                 Signing in...
-              </button> : <button
-                className=" bg-blue-500  hover:bg-blue-600 text-white py-2 px-4 rounded"
+              </button>
+            ) : (
+              <button
+                className=" bg-[#6e70f1]  hover:bg-[#5a5cff] text-white py-1.5 px-4 rounded"
                 type="submit"
               >
                 Sign in
-              </button>}
-              
-            </div>
-          </form>
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        </div>
-   
+              </button>
+            )}
+          </div>
+        </form>
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+      </div>
     </div>
   );
 };
